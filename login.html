@@ -14,24 +14,19 @@
       <div class="nav-wrapper"><a class="brand-logo center" href="/">kznAgenda</a><a class="sidenav-trigger" href="#" data-target="mobile-sidenav"><i class="material-icons">menu</i></a>
         <ul class="left hide-on-med-and-down">
               <li><a href="/"><i class="material-icons mr-3 left">home</i>Концерты</a></li>
-              <li><a href="/lk/starred"><i class="material-icons mr-3 left">favorite</i>Избранное</a></li>
-              <li><a href="/chats"><i class="material-icons mr-3 left">chat</i>Чаты</a></li>
         </ul>
-        <ul class="dropdown-content" id="user-dropdown">
-          <li><a href="/lk">Личный кабинет</a></li>
-              <li><a href="/lk/logout"><i class="material-icons mr-3 left">logout</i>Выход</a></li>
-        </ul>
-        <ul class="right hide-on-small-and-down">
-          <li><a class="dropdown-trigger" href="#!" data-target="user-dropdown"><i class="material-icons mr-3 left">account_circle</i>Test user<i class="material-icons right">arrow_drop_down</i></a></li>
+        <ul class="right">
+              <li class="hide-on-small-and-down"><a href="/login"><i class="material-icons mr-3 left">input</i>Вход</a></li>
+              <li class="hide-on-med-and-down"><a href="/register"><i class="material-icons mr-3 left">open_in_browser</i>Регистрация</a></li>
+          <!--li.hide-on-small-and-down: a(href="/login") Вход-->
+          <!--li.hide-on-med-and-down: a(href="/register") Регистрация-->
         </ul>
       </div>
     </nav>
     <ul class="sidenav" id="mobile-sidenav">
           <li><a href="/"><i class="material-icons mr-3">home</i>Концерты</a></li>
-          <li><a href="/lk/starred"><i class="material-icons mr-3">favorite</i>Избранное</a></li>
-          <li><a href="/chats"><i class="material-icons mr-3">chat</i>Чаты</a></li>
-          <li><a href="/lk"><i class="material-icons mr-3">account_circle</i>Личный кабинет</a></li>
-          <li><a href="/lk/logout"><i class="material-icons mr-3">logout</i>Выход</a></li>
+          <li><a href="/login"><i class="material-icons mr-3">input</i>Вход</a></li>
+          <li><a href="/register"><i class="material-icons mr-3">open_in_browser</i>Регистрация</a></li>
     </ul>
     <div class="container">
       <div class="row">
@@ -59,9 +54,9 @@
               <label for="password">Пароль</label>
             </div>
             <label class="ml-2">
-              <input type="checkbox" name="stayLoggedIn" checked="checked"/><span>Остаться в системе</span>
+              <input type="checkbox" name="stayLoggedIn" checked="checked"/><span style="height: auto;">Остаться в системе</span>
             </label>
-            <button class="right btn waves-effect waves-light accent mt-n2" type="submit">Войти<i class="material-icons right">send</i></button>
+            <button class="right btn waves-effect waves-light accent mb-1 mt-3 col s12" type="submit">Войти<i class="material-icons right">send</i></button>
           </form>
         </div>
       </div>
