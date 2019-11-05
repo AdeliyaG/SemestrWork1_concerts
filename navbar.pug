@@ -1,0 +1,42 @@
+mixin item(name, link, icon, toLeft)
+  li(class!=attributes.class): a(href=link)
+    i.material-icons.mr-3(class={left: toLeft})= icon
+    | #{name}
+
+nav(style={'background-color': theme.primary})
+  .nav-wrapper
+    a.brand-logo.center(href="/")= siteName
+    a.sidenav-trigger(href="#" data-target="mobile-sidenav")
+      i.material-icons menu
+    if user
+      ul.left.hide-on-med-and-down
+        +item("Концерты", "/", "home", true)
+        +item("Избранное", "/lk/starred", "favorite", true)
+        +item("Чаты", "/chats", "chat", true)
+      ul#user-dropdown.dropdown-content
+        li: a(href="/lk") Личный кабинет
+        +item("Выход", "/lk/logout", "logout", true)
+      ul.right.hide-on-small-and-down
+        li: a.dropdown-trigger(href='#!' data-target='user-dropdown')
+          i.material-icons.mr-3.left account_circle
+          = user.username
+          i.material-icons.right arrow_drop_down
+    else
+      ul.left.hide-on-med-and-down
+        +item("Концерты", "/", "home", true)
+      ul.right
+        +item("Вход", "/login", "input", true)(class="hide-on-small-and-down")
+        +item("Регистрация", "/register", "open_in_browser", true)(class="hide-on-med-and-down")
+        //li.hide-on-small-and-down: a(href="/login") Вход
+        //li.hide-on-med-and-down: a(href="/register") Регистрация
+
+ul#mobile-sidenav.sidenav
+  +item("Концерты", "/", "home")
+  if user
+    +item("Избранное", "/lk/starred", "favorite")
+    +item("Чаты", "/chats", "chat")
+    +item("Личный кабинет", "/lk", "account_circle")
+    +item("Выход", "/lk/logout", "logout")
+  else
+    +item("Вход", "/login", "input")
+    +item("Регистрация", "/register", "open_in_browser")

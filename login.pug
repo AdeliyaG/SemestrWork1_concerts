@@ -1,0 +1,30 @@
+extends layout
+
+block head
+  title #{siteName} | Авторизация
+
+block content
+  .row
+    h4= siteName
+      |.ru
+  .row
+    .col.l6.pl-0.pr-4
+      include advantages
+    .card-panel.col.offset-l1.l5.deep-purple.lighten-5
+      h3 Вход
+      form(action="/login")
+        .input-field
+          i.material-icons.prefix account_circle
+          input#login.validate(type="text")
+          label(for="login") Имя пользователя
+        .input-field
+          i.material-icons.prefix lock
+          input#password.validate(type="text")
+          label(for="password") Пароль
+
+        label.ml-2
+          input(type="checkbox" checked)
+          span Остаться в системе
+        button.right.btn.waves-effect.waves-light.accent.mt-n2(type="submit" name="action")
+          | Войти
+          i.material-icons.right send

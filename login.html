@@ -1,0 +1,72 @@
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="css/helpers.css"/>
+    <link type="text/css" rel="stylesheet" href="css/main.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta charset="utf-8"/>
+    <title>kznAgenda | Авторизация</title>
+  </head>
+  <body>
+    <nav style="background-color:#554488;">
+      <div class="nav-wrapper"><a class="brand-logo center" href="/">kznAgenda</a><a class="sidenav-trigger" href="#" data-target="mobile-sidenav"><i class="material-icons">menu</i></a>
+        <ul class="left hide-on-med-and-down">
+              <li><a href="/"><i class="material-icons mr-3 left">home</i>Концерты</a></li>
+              <li><a href="/lk/starred"><i class="material-icons mr-3 left">favorite</i>Избранное</a></li>
+              <li><a href="/chats"><i class="material-icons mr-3 left">chat</i>Чаты</a></li>
+        </ul>
+        <ul class="dropdown-content" id="user-dropdown">
+          <li><a href="/lk">Личный кабинет</a></li>
+              <li><a href="/lk/logout"><i class="material-icons mr-3 left">logout</i>Выход</a></li>
+        </ul>
+        <ul class="right hide-on-small-and-down">
+          <li><a class="dropdown-trigger" href="#!" data-target="user-dropdown"><i class="material-icons mr-3 left">account_circle</i>Test user<i class="material-icons right">arrow_drop_down</i></a></li>
+        </ul>
+      </div>
+    </nav>
+    <ul class="sidenav" id="mobile-sidenav">
+          <li><a href="/"><i class="material-icons mr-3">home</i>Концерты</a></li>
+          <li><a href="/lk/starred"><i class="material-icons mr-3">favorite</i>Избранное</a></li>
+          <li><a href="/chats"><i class="material-icons mr-3">chat</i>Чаты</a></li>
+          <li><a href="/lk"><i class="material-icons mr-3">account_circle</i>Личный кабинет</a></li>
+          <li><a href="/lk/logout"><i class="material-icons mr-3">logout</i>Выход</a></li>
+    </ul>
+    <div class="container">
+      <div class="row">
+        <h4>kznAgenda.ru</h4>
+      </div>
+      <div class="row">
+        <div class="col l6 pl-0 pr-4">
+          <h6 class="grey-text mx-0">Сервис по поиску и покупке билетов на концерты</h6><span><a href="/register">Зарегистрировавшись</a>, вы будете иметь дополнительные возможности:</span>
+          <ul class="browser-default">
+            <li>Покупка билетов, оплата онлайн</li>
+            <li>Добавление концертов в избранное</li>
+            <li>Поиск компании для похода на интересующий концерт</li>
+          </ul><br/>
+          <p>Пользуясь данным сайтом, вы также принимаете соглашение на использование cookies в вашем браузере</p>
+        </div>
+        <div class="card-panel col offset-l1 l5 deep-purple lighten-5">
+          <h3>Вход</h3>
+          <form action="/login">
+            <div class="input-field"><i class="material-icons prefix">account_circle</i>
+              <input class="validate" id="login" type="text"/>
+              <label for="login">Имя пользователя</label>
+            </div>
+            <div class="input-field"><i class="material-icons prefix">lock</i>
+              <input class="validate" id="password" type="text"/>
+              <label for="password">Пароль</label>
+            </div>
+            <label class="ml-2">
+              <input type="checkbox" checked="checked"/><span>Остаться в системе</span>
+            </label>
+            <button class="right btn waves-effect waves-light accent mt-n2" type="submit" name="action">Войти<i class="material-icons right">send</i></button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script type="text/javascript" src="js/init.js"></script>
+  </body>
+</html>
