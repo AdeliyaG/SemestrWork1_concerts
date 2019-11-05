@@ -7,7 +7,7 @@
     <link type="text/css" rel="stylesheet" href="css/main.css"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta charset="utf-8"/>
-    <title>kznAgenda | Авторизация</title>
+    <title>kznAgenda | Регистрация</title>
   </head>
   <body>
     <nav style="background-color:#554488;">
@@ -34,39 +34,54 @@
           <li><a href="/lk/logout"><i class="material-icons mr-3">logout</i>Выход</a></li>
     </ul>
     <div class="container">
+      <h2>Регистрация</h2>
       <div class="row">
-        <h4>kznAgenda.ru</h4>
-      </div>
-      <div class="row">
-        <div class="col s12 l6 pl-0 pr-4">
-          <h6 class="grey-text mx-0">Сервис по поиску и покупке билетов на концерты</h6><span><a href="/register">Зарегистрировавшись</a>, вы будете иметь дополнительные возможности:</span>
-          <ul class="browser-default">
-            <li>Покупка билетов, оплата онлайн</li>
-            <li>Добавление концертов в избранное</li>
-            <li>Поиск компании для похода на интересующий концерт</li>
-          </ul><br/>
-          <p>Пользуясь данным сайтом, вы также принимаете соглашение на использование cookies в вашем браузере</p>
-        </div>
-        <div class="card-panel col s12 offset-l1 l5 deep-purple lighten-5 px-5 pb-3">
-          <h3>Вход</h3>
-          <form action="/login" method="GET">
-            <div class="input-field"><i class="material-icons prefix">account_circle</i>
-              <input class="validate" id="login" type="text" name="login"/>
+        <form class="col l12 m12 s12" action="/register" method="POST">
+          <div class="row mb-0">
+            <div class="input-field col s12 l5">
+              <input class="validate" id="first_name" type="text" name="first_name"/>
+              <label for="first_name">Имя</label>
+            </div>
+            <div class="input-field col s12 l5 offset-l1">
+              <input class="validate" id="last_name" type="text" name="last_name"/>
+              <label for="last_name">Фамилия</label>
+            </div>
+          </div>
+          <div class="row mb-0">
+            <div class="input-field col s12 l5">
+              <input class="validate" id="login" type="text" name="login" data-length="12"/>
               <label for="login">Имя пользователя</label>
             </div>
-            <div class="input-field"><i class="material-icons prefix">lock</i>
+            <div class="input-field col s12 l5 offset-l1">
+              <input class="datepicker no-autoinit col s12" id="birthdate" type="text"/>
+              <label for="birthdate">День рождения</label>
+            </div>
+          </div>
+          <div class="row mb-0">
+            <div class="input-field col s12 l5">
               <input class="validate" id="password" type="password" name="password"/>
               <label for="password">Пароль</label>
             </div>
+            <div class="input-field col s12 l5 offset-l1">
+              <input class="validate" id="password-ver" type="password" name="password_ver"/>
+              <label for="password-ver">Пароль ещё раз</label>
+            </div>
+          </div>
+          <div class="row">
             <label class="ml-2">
-              <input type="checkbox" name="stayLoggedIn" checked="checked"/><span>Остаться в системе</span>
+              <input type="checkbox" name="accept" checked="checked"/><span style="height: auto;">Принимаю соглашение об обработке персональных данных</span>
             </label>
-            <button class="right btn waves-effect waves-light accent mt-n2" type="submit">Войти<i class="material-icons right">send</i></button>
-          </form>
-        </div>
+          </div>
+          <div class="row">
+            <button class="btn btn-large waves-effect waves-light accent col" type="submit">Зарегистрироваться<i class="material-icons right">send</i></button>
+          </div>
+          <div class="text-center"><a href="/login">Уже зарегистрированы?</a></div>
+        </form>
       </div>
     </div>
     <script type="text/javascript" src="js/materialize.min.js"></script>
     <script type="text/javascript" src="js/init.js"></script>
+    <script type="text/javascript" src="/js/birthDatePicker.js"></script>
+    <script>M.CharacterCounter.init(document.getElementById('login'));</script>
   </body>
 </html>

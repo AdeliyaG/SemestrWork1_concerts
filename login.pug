@@ -8,23 +8,23 @@ block content
     h4= siteName
       |.ru
   .row
-    .col.l6.pl-0.pr-4
+    .col.s12.l6.pl-0.pr-4
       include advantages
-    .card-panel.col.offset-l1.l5.deep-purple.lighten-5
+    .card-panel.col.s12.offset-l1.l5.deep-purple.lighten-5.px-5.pb-3
       h3 Вход
-      form(action="/login")
+      form(action="/login" method="GET")
         .input-field
           i.material-icons.prefix account_circle
-          input#login.validate(type="text")
+          input#login.validate(type="text" name="login")
           label(for="login") Имя пользователя
         .input-field
           i.material-icons.prefix lock
-          input#password.validate(type="text")
+          input#password.validate(type="password" name="password")
           label(for="password") Пароль
 
         label.ml-2
-          input(type="checkbox" checked)
+          input(type="checkbox" name="stayLoggedIn" checked)
           span Остаться в системе
-        button.right.btn.waves-effect.waves-light.accent.mt-n2(type="submit" name="action")
+        button.right.btn.waves-effect.waves-light.accent.mt-n2(type="submit")
           | Войти
           i.material-icons.right send
