@@ -1,0 +1,45 @@
+extends layout
+
+block head
+  title #{siteName} | Регистрация
+
+block content
+  h2 Регистрация
+  .row: form.col.l12.m12.s12(action="/register" method="POST")
+    .row.mb-0
+      .input-field.col.s12.l5
+        input#first_name.validate(type="text" name="first_name")
+        label(for="first_name") Имя
+      .input-field.col.s12.l5.offset-l1
+        input#last_name.validate(type="text" name="last_name")
+        label(for="last_name") Фамилия
+    .row.mb-0
+      .input-field.col.s12.l5
+        input#login.validate(type="text" name="login", data-length="12")
+        label(for="login") Имя пользователя
+      .input-field.col.s12.l5.offset-l1
+        input#birthdate.datepicker.no-autoinit.col.s12(type="text")
+        label(for="birthdate") День рождения
+    .row.mb-0
+      .input-field.col.s12.l5
+        input#password.validate(type="password" name="password")
+        label(for="password") Пароль
+      .input-field.col.s12.l5.offset-l1
+        input#password-ver.validate(type="password" name="password_ver")
+        label(for="password-ver") Пароль ещё раз
+    .row
+      label.ml-2
+        input(type="checkbox" name="accept" checked)
+        span(style="height: auto;") Принимаю соглашение об обработке персональных данных
+    .row
+      button.btn.btn-large.waves-effect.waves-light.accent.col(type="submit")
+        | Зарегистрироваться
+        i.material-icons.right send
+    .text-center
+      a(href="/login") Уже зарегистрированы?
+
+
+append scripts
+  script(type="text/javascript" src="/js/birthDatePicker.js")
+  script.
+    M.CharacterCounter.init(document.getElementById('login'));

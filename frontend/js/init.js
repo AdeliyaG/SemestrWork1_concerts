@@ -1,0 +1,1 @@
+M.AutoInit(document.body);

@@ -1,0 +1,43 @@
+.dropdown-content li>a {
+    color: #fc6d26 !important;
+}
+
+.accent {
+    background-color: #fc6d26 !important;
+}
+
+#carousel {
+    height: 200px;
+}
+#carousel .carousel-item {
+    width: 800px;
+    height: 276px;
+}
+
+.search-box {
+    box-sizing: border-box;
+    border: #aaa 1px solid;
+    border-radius: 3px;
+    height: 48px;
+    overflow: hidden;
+}
+
+.search-box .input-field {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.search-box > :first-child {
+    border-right: #ddd 1px solid;
+}
+
+.search-box .input-field input {
+    border-bottom: none !important;
+    margin-bottom: 0;
+}
+.search-box .input-field .submit {
+    padding: 11px;
+    background: none;
+    border: none;
+    border-left: #ddd 1px solid;
+}
