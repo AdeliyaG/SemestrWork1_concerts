@@ -1,0 +1,58 @@
+extends layout
+
+mixin concert
+  .card
+    .card-image
+      img(src="http://lorempixel.com/350/300")
+      a.btn-floating.btn-large.halfway-fab.waves-effect.waves-light(style={'background-color': theme.primary})
+        i.material-icons shopping_cart
+    .card-content
+      span.card-title Название концерта
+      p Цена
+
+
+append navbar
+  #carousel.carousel.no-autoinit
+    each item in [1, 2, 3, 4]
+      a.carousel-item(href="#")
+        img(src=`http://lorempixel.com/970/276/animals/${2+item}`)
+
+block content
+  h2.mt-0 Концерты
+  form.search-box.row.mx-2(action="/")
+    .input-field.col.m3.hide-on-small-and-down
+      select
+        option(value="date") Сначала предстоящие
+    .input-field.col.m8.s10
+      input(type="search" name="query" placeholder="Поиск..." required)
+    .input-field.right
+      button.submit(type="submit")
+        i.material-icons search
+  .row
+    each item in [1, 2, 3, 4, 5, 6]
+      .col.l4.xl3: +concert
+
+
+
+append head
+  style.
+
+
+append scripts
+  script.
+    let timeout;
+    let carousel = M.Carousel.init(document.getElementById('carousel'), {
+      numVisible: 3,
+      indicators: true,
+      shift: 50,
+      dist: -10,
+      onCycleTo: resetTimeout
+    });
+
+    function resetTimeout() {
+      if(timeout) clearTimeout(timeout)
+      timeout = setTimeout(function () {
+        carousel.next();
+      }, 5000)
+    }
+    resetTimeout()
