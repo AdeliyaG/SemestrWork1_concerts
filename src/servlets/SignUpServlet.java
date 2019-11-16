@@ -1,12 +1,7 @@
 package servlets;
 
-
-import de.neuland.jade4j.Jade4J;
-import de.neuland.jade4j.JadeConfiguration;
-import de.neuland.jade4j.template.FileTemplateLoader;
-import de.neuland.jade4j.template.JadeTemplate;
-import de.neuland.jade4j.template.TemplateLoader;
 import forms.UserService;
+import servlets.jade.JadeConf;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -26,14 +21,8 @@ public class SignUpServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        JadeConfiguration config = new JadeConfiguration();
-        TemplateLoader loader = new FileTemplateLoader(basePath, "UTF-8", "pug");
-        config.setTemplateLoader(loader);
-        config.setBasePath(basePath);
-        config.setCaching(false);
-        JadeTemplate template = config.getTemplate("register.pug");
         Map<String, Object> model = new HashMap<>();
-        config.renderTemplate(template, model,resp.getWriter());
+        JadeConf.render("index", model, resp);
     }
 
     @Override

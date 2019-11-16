@@ -1,3 +1,5 @@
+package servlets.jade;
+
 import de.neuland.jade4j.template.TemplateLoader;
 
 import java.io.*;
