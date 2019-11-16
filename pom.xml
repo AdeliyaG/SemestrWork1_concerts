@@ -37,6 +37,7 @@
             <scope>provided</scope>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/de.neuland-bfi/jade4j -->
         <dependency>
             <groupId>de.neuland-bfi</groupId>
             <artifactId>jade4j</artifactId>
