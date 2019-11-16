@@ -48,7 +48,7 @@
               <label for="login">Имя пользователя</label>
             </div>
             <div class="input-field col s12 l5 offset-l1">
-              <input class="datepicker no-autoinit col s12" id="birthdate" type="text"/>
+              <input class="datepicker no-autoinit col s12" id="birthdate" type="text" name="birthdate"/>
               <label for="birthdate">День рождения</label>
             </div>
           </div>
@@ -58,8 +58,8 @@
               <label for="password">Пароль</label>
             </div>
             <div class="input-field col s12 l5 offset-l1">
-              <input class="validate" id="password-ver" type="password" name="password_ver"/>
-              <label for="password-ver">Пароль ещё раз</label>
+              <input class="validate" id="password_ver" type="password" name="password_ver"/>
+              <label for="password_ver">Пароль ещё раз</label>
             </div>
           </div>
           <div class="row">
@@ -68,7 +68,7 @@
             </label>
           </div>
           <div class="row">
-            <button class="btn btn-large waves-effect waves-light accent col" type="submit">Зарегистрироваться<i class="material-icons right">send</i></button>
+            <button class="btn btn-large waves-effect waves-light accent col" type="submit" name="singUpButton">Зарегистрироваться<i class="material-icons right">send</i></button>
           </div>
           <div class="text-center"><a href="/login">Уже зарегистрированы?</a></div>
         </form>
