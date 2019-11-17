@@ -17,9 +17,9 @@ block content
       .input-field.col.s12.l5
         input#login.validate(type="text" name="login", data-length="12")
         label(for="login") Имя пользователя
-      .input-field.col.s12.l5.offset-l1
-        input#birthdate.datepicker.no-autoinit.col.s12(type="text")
-        label(for="birthdate") День рождения
+      //.input-field.col.s12.l5.offset-l1
+      //  input#birthdate.datepicker.no-autoinit.col.s12(type="text" name="birthdate")
+      //  label(for="birthdate") День рождения
     .row.mb-0
       .input-field.col.s12.l5
         input#password.validate(type="password" name="password")
@@ -32,7 +32,7 @@ block content
         input(type="checkbox" name="accept" checked)
         span(style="height: auto;") Принимаю соглашение об обработке персональных данных
     .row
-      button.btn.btn-large.waves-effect.waves-light.accent.col(type="submit")
+      button.btn.btn-large.waves-effect.waves-light.accent.col(type="submit" name="signUpButton")
         | Зарегистрироваться
         i.material-icons.right send
     .text-center

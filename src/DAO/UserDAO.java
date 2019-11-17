@@ -2,12 +2,12 @@ package DAO;
 
 import models.User;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
+
 
 public class UserDAO {
     private static Connection connection = DBConnection.getConnection();
+
 
     public boolean loginIsContained(String login) {
         try {
@@ -25,12 +25,12 @@ public class UserDAO {
 
     public void saveUser(User user) {
         try {
-            PreparedStatement statement = connection.prepareStatement("INSERT INTO users (username, firstname, lastname, birthDate, password) VALUES (?, ?, ?, ?, ?) ");
+            PreparedStatement statement = connection.prepareStatement("INSERT INTO users (username, firstname, lastname, password) VALUES (?, ?, ?, ?);");
             statement.setString(1, user.getUsername());
             statement.setString(2, user.getFirstname());
             statement.setString(3, user.getLastname());
-            statement.setString(4, user.getBirthLocalDate().toString());
-            statement.setString(5, user.getPassword());
+//            statement.setString(4, user.getBirthLocalDate().toString());
+            statement.setString(4, user.getPassword());
             statement.executeUpdate();
         } catch (SQLException e) {
             System.out.println("Exception during saveUser");

@@ -22,11 +22,10 @@ public class User {
         this.avatar = avatar;
     }
 
-    public User(String username, String firstname, String lastname, LocalDate birthLocalDate, String password) {
+    public User(String username, String firstname, String lastname, String password) {
         this.username = username;
         this.firstname = firstname;
         this.lastname = lastname;
-        this.birthLocalDate = birthLocalDate;
         this.password = password;
     }
 

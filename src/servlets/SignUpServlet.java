@@ -13,7 +13,7 @@ import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.Map;
 
-@WebServlet("/signUp")
+@WebServlet("/register")
 public class SignUpServlet extends HttpServlet {
 
     private UserService userService = new UserService();
@@ -21,7 +21,7 @@ public class SignUpServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Map<String, Object> model = new HashMap<>();
-        JadeConf.render("login", model, resp);
+        JadeConf.render("register", model, resp);
     }
 
     @Override
