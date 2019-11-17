@@ -15,14 +15,13 @@ import java.util.Map;
 
 @WebServlet("/signUp")
 public class SignUpServlet extends HttpServlet {
-    private String basePath = "C:\\MyJava\\KznAgenda\\frontend\\";
 
     private UserService userService = new UserService();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Map<String, Object> model = new HashMap<>();
-        JadeConf.render("index", model, resp);
+        JadeConf.render("login", model, resp);
     }
 
     @Override

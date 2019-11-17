@@ -1,9 +1,9 @@
 mixin item(name, link, icon, toLeft)
   li(class!=attributes.class): a(href=link)
-    i.material-icons.mr-3(class={left: toLeft})= icon
+    i.material-icons.mr-3(class={"left": toLeft})= icon
     | #{name}
 
-nav(style={'background-color': theme.primary})
+nav(style="background-color: "+theme.primary+";")
   .nav-wrapper
     a.brand-logo.center(href="/")= siteName
     a.sidenav-trigger(href="#" data-target="mobile-sidenav")
