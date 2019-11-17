@@ -7,20 +7,20 @@ import javax.servlet.http.HttpSession;
 
 public class CookieHelper {
 
-    public void addCookie(HttpServletRequest req, HttpServletResponse resp, String email) {
+    public void addCookie(HttpServletRequest req, HttpServletResponse resp, String username) {
         HttpSession session = req.getSession(true);
-        if (req.getParameter("rememberMe") != null) {
-            Cookie cLogin = new Cookie("cookemail", email);
+        if (req.getParameter("stayLoggedIn") != null) {
+            Cookie cLogin = new Cookie("username", username);
             cLogin.setMaxAge(10000);
             resp.addCookie(cLogin);
         }
-        session.setAttribute("current_user", email);
+        session.setAttribute("current_user", username);
     }
 
     public static boolean checkCookie(HttpServletRequest req) {
         Cookie[] cookies = req.getCookies();
         for (Cookie cookie : cookies) {
-            if (cookie.getName().equals("cookemail")) {
+            if (cookie.getName().equals("username")) {
                 req.getSession().setAttribute("current_user", cookie.getValue());
                 return true;
             }
@@ -35,7 +35,7 @@ public class CookieHelper {
         session.invalidate();
         Cookie[] cookies = req.getCookies();
         for (Cookie cookie : cookies) {
-            if (cookie.getName().equals("cookemail")) {
+            if (cookie.getName().equals("username")) {
                 cookie.setMaxAge(0);
                 resp.addCookie(cookie);
             }

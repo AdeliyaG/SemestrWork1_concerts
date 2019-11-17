@@ -23,6 +23,16 @@ public class Concerts {
         this.pefrormer_id = pefrormer_id;
     }
 
+    public Concerts(String title, String description, String poster, Date date, int place_id, int rec_age, int pefrormer_id) {
+        this.title = title;
+        this.description = description;
+        this.poster = poster;
+        this.date = date;
+        this.place_id = place_id;
+        this.rec_age = rec_age;
+        this.pefrormer_id = pefrormer_id;
+    }
+
     public int getId() {
         return id;
     }

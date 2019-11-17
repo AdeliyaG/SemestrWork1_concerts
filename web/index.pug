@@ -1,21 +1,20 @@
 extends layout
 
-mixin concert
+mixin concert(title, poster, cost)
   .card
     .card-image
-      img(src="http://lorempixel.com/350/300")
-      a.btn-floating.btn-large.halfway-fab.waves-effect.waves-light(style="background-color: "+theme.primary+";")
+      img(src=poster)
+      a.btn-floating.btn-large.halfway-fab.waves-effect.waves-light(style="background-color: " + theme.primary + ";")
         i.material-icons shopping_cart
     .card-content
-      span.card-title Название концерта
-      p Цена
-
+      span.card-title= title
+      p= cost
 
 append navbar
   #carousel.carousel.no-autoinit
     each item in [1, 2, 3, 4]
       a.carousel-item(href="#")
-        img(src="http://lorempixel.com/970/276/animals/"+(2+item))
+        img(src="http://lorempixel.com/970/276/animals/" + (2 + item))
 
 block content
   h2.mt-0 Концерты
@@ -29,7 +28,7 @@ block content
       button.submit(type="submit")
         i.material-icons search
   .row
-    each item in [1, 2, 3, 4, 5, 6]
+    each item in concerts
       .col.l4.xl3: +concert
 
 
@@ -40,19 +39,19 @@ append head
 
 append scripts
   script.
-    let timeout;
-    let carousel = M.Carousel.init(document.getElementById('carousel'), {
-      numVisible: 3,
-      indicators: true,
-      shift: 50,
-      dist: -10,
-      onCycleTo: resetTimeout
-    });
+      let timeout;
+      let carousel = M.Carousel.init(document.getElementById('carousel'), {
+          numVisible: 3,
+          indicators: true,
+          shift: 50,
+          dist: -10,
+          onCycleTo: resetTimeout
+      });
 
-    function resetTimeout() {
-      if(timeout) clearTimeout(timeout)
-      timeout = setTimeout(function () {
-        carousel.next();
-      }, 5000)
-    }
-    resetTimeout()
+      function resetTimeout() {
+          if (timeout) clearTimeout(timeout)
+          timeout = setTimeout(function () {
+              carousel.next();
+          }, 5000)
+      }
+      resetTimeout()

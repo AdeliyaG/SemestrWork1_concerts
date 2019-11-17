@@ -8,7 +8,6 @@ import java.sql.*;
 public class UserDAO {
     private static Connection connection = DBConnection.getConnection();
 
-
     public boolean loginIsContained(String login) {
         try {
             PreparedStatement statement = connection.prepareStatement("SELECT * FROM users WHERE username = ?");
@@ -34,6 +33,7 @@ public class UserDAO {
             statement.executeUpdate();
         } catch (SQLException e) {
             System.out.println("Exception during saveUser");
+            e.printStackTrace(System.err);
             throw new IllegalArgumentException();
         }
     }

@@ -18,15 +18,15 @@ public class UserService {
     private CookieHelper cookieHelper = new CookieHelper();
 
     public void signUp(HttpServletRequest req, HttpServletResponse resp) {
+        String login = req.getParameter("login");
         String first_name = req.getParameter("first_name");
         String last_name = req.getParameter("last_name");
-        String login = req.getParameter("login");
 //        LocalDate birthdate = LocalDate.parse(req.getParameter("birthdate"));
         String password = req.getParameter("password");
         String password_ver = req.getParameter("password_ver");
         if (req.getParameter("signUpButton") != null) {
             if (!userDAO.loginIsContained(login)) {
-                userDAO.saveUser(new User(first_name, last_name, login, password));
+                userDAO.saveUser(new User(login, first_name, last_name, password));
                 try {
                     resp.sendRedirect("/login");
                 } catch (IOException e) {
@@ -48,9 +48,8 @@ public class UserService {
         try {
             if (userDAO.checkUser(username, password)) {
                 cookieHelper.addCookie(req, resp, username);
-                resp.sendRedirect("/profile");
+                resp.sendRedirect("/");
             } else {
-                System.out.println("fksd");
                 //todo if user is not found
             }
         } catch (IOException e) {
