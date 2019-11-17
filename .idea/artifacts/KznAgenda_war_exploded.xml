@@ -23,6 +23,7 @@
           <element id="library" level="project" name="Maven: commons-collections:commons-collections:3.2.2" />
           <element id="library" level="project" name="Maven: commons-logging:commons-logging:1.1.1" />
           <element id="library" level="project" name="Maven: com.googlecode.concurrentlinkedhashmap:concurrentlinkedhashmap-lru:1.4.2" />
+          <element id="library" level="project" name="Maven: mysql:mysql-connector-java:8.0.17" />
         </element>
       </element>
       <element id="module-output" name="kznAgenda" />
