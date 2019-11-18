@@ -17,7 +17,7 @@ public class CookieHelper {
         session.setAttribute("current_user", username);
     }
 
-    public static boolean checkCookie(HttpServletRequest req) {
+    public  boolean checkCookie(HttpServletRequest req) {
         Cookie[] cookies = req.getCookies();
         for (Cookie cookie : cookies) {
             if (cookie.getName().equals("username")) {

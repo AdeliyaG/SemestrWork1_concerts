@@ -52,4 +52,19 @@ public class UserDAO {
         }
         return false;
     }
+
+    public User getUserByUsername(String username){
+        try {
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM users WHERE username = ?");
+            statement.setString(1, username);
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+                return new User(resultSet.getString("username"), resultSet.getString("firstname"), resultSet.getString("lastname"), resultSet.getString("password"), resultSet.getString("avatar"));
+            }
+        } catch (SQLException e) {
+            System.out.println("Exception during get user by email");
+            throw new IllegalArgumentException();
+        }
+        return null;
+    }
 }

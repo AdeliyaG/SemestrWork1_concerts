@@ -59,5 +59,9 @@ public class UserService {
             throw new IllegalArgumentException();
         }
     }
+
+    public User getUserByUsername(String username){
+        return userDAO.getUserByUsername(username);
+    }
 }
 

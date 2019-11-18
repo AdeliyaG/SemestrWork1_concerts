@@ -15,7 +15,7 @@ nav(style="background-color: "+theme.primary+";")
         +item("Чаты", "/chats", "chat", true)
       ul#user-dropdown.dropdown-content
         li: a(href="/lk") Личный кабинет
-        +item("Выход", "/lk/logout", "logout", true)
+        +item("Выход", "/logout", "logout", true)
       ul.right.hide-on-small-and-down
         li: a.dropdown-trigger(href='#!' data-target='user-dropdown')
           i.material-icons.mr-3.left account_circle

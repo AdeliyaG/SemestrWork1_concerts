@@ -1,5 +1,6 @@
 package servlets;
 
+import HelperMethods.CookieHelper;
 import forms.UserService;
 import servlets.jade.JadeConf;
 
@@ -14,13 +15,17 @@ import java.util.Map;
 
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
-
-    UserService userService = new UserService();
+    private CookieHelper cookieHelper = new CookieHelper();
+    private UserService userService = new UserService();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        Map<String, Object> model = new HashMap<>();
-        JadeConf.render("login", model, resp);
+        if (req.getSession().getAttribute("current_user") != null || cookieHelper.checkCookie(req)) {
+            resp.sendRedirect("/");
+        } else {
+            Map<String, Object> model = new HashMap<>();
+            JadeConf.render("login", model, resp);
+        }
     }
 
     @Override
