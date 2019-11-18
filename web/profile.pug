@@ -1,0 +1,36 @@
+extends layout
+
+block head
+  title #{siteName} | Профиль
+
+block content
+  -
+    // Убрать на реальных данных
+    var attended = [{
+      "poster": "//via.placeholder.com/150",
+      "title": "Заголовок концерта",
+      "performer_name": "Имя исполнителя",
+      "date": "17 Ноя 2019",
+      "price": "1100 руб."
+    }]
+
+  .profile-info.mt-2
+    .profile-wrapper.center-block
+      img.profile-pic.circle(src="https://pbs.twimg.com/media/D4tTgWTWkAMYCoU.png")
+      a.btn-floating.waves-effect.waves-orange(href="/lk/edit" style="background-color: "+theme.accent+";")
+        i.material-icons edit
+    h4.center-align.my-1= user.first_name + " " + user.last_name
+    h6.center-align.mt-1 @
+      = user.username
+      | &nbsp;&middot; Посещённых концертов:&nbsp;
+      = attended.length
+
+  h4 Купленные
+  ul.collection.attended
+    each concert in attended
+      li.collection-item.avatar
+        img.circle(src=concert.poster)
+        span.title= concert.title
+        p= concert.performer_name
+        p.grey-text= concert.date
+        span.secondary-content= concert.price
