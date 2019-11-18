@@ -1,0 +1,24 @@
+extends inc/layout
+
+block head
+  title Концерт
+
+block content
+  -
+    var concert = {
+    "poster": "//via.placeholder.com/320x400",
+    "performer_name": "Имя исполнителя",
+    "title": "Заголовок концерта",
+    "performer_name": "Имя исполнителя",
+    "date": "17 Ноя 2019",
+    "price": "1100 руб."
+    }
+
+  .row.mt-3
+    .col.s12.m4
+      img.responsive-img(src=concert.poster)
+    .col.s12.m8
+      h4= concert.title
+      h5
+        i.material-icons person_pin
+        = concert.performer_name
