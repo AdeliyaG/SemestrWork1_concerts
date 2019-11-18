@@ -1,0 +1,42 @@
+extends layout
+
+block head
+  title Редактирование профиля
+
+block content
+  h2
+    a.btn-floating.btn-large.btn-flat.mr-3(href="/lk")
+      i.material-icons.black-text arrow_back
+    | Редактирование профиля
+  .row: form.col.l12.m12.s12(action="/register" method="POST")
+    .row.mb-0
+      .input-field.col.s12.l5
+        input#first_name.validate(type="text" name="first_name" value=user.first_name)
+        label(for="first_name") Имя
+      .input-field.col.s12.l5.offset-l1
+        input#last_name.validate(type="text" name="last_name" value=user.last_name)
+        label(for="last_name") Фамилия
+    .row.mb-0
+      .input-field.file-field.col.s12.l5
+        .btn(style="background-color: "+theme.primary+";")
+          span Аватар
+          input(type="file" accept="image/jpeg,image/png" name="avatar")
+        .file-path-wrapper
+          input.file-path.validate(type="text")
+    .row.mb-0
+      .input-field.col.s12.l5
+        input#birthdate.datepicker.no-autoinit.col.s12(type="text" name="birthdate")
+        label(for="birthdate") День рождения
+    .row.mb-0
+      .input-field.col.s12.l5
+        input#password.validate(type="password" name="password")
+        label(for="password") Новый пароль
+        .grey-text P.S. Оставьте пустым если не хотите менять
+    .row
+      button.btn.btn-large.waves-effect.waves-light.accent.col(type="submit")
+        | Применить
+        i.material-icons.right done
+
+
+append scripts
+  script(type="text/javascript" src="/js/birthDatePicker.js")
