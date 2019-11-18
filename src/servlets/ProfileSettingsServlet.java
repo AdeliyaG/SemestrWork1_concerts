@@ -1,9 +1,9 @@
 package servlets;
 
-import forms.ConcertService;
 import forms.UserService;
 import servlets.jade.JadeConf;
 
+import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -12,22 +12,23 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-@WebServlet("/")
-public class MainPageServlet extends HttpServlet {
-    private ConcertService concertService = new ConcertService();
+@WebServlet("/lk/edit")
+public class ProfileSettingsServlet extends HttpServlet {
     private UserService userService = new UserService();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         Map<String, Object> model = new HashMap<>();
-        model.put("concerts", concertService.getConcerts());
         if (req.getSession().getAttribute("current_user") != null) {
             model.put("user", userService.getUserByUsername((String) req.getSession().getAttribute("current_user")));
+        } else {
+            resp.sendRedirect("/");
         }
-        JadeConf.render("index", model, resp);
+        JadeConf.render("profile_edit", model, resp);
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        super.doPost(req, resp);
     }
 }
