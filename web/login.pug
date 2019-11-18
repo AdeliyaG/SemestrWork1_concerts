@@ -1,4 +1,4 @@
-extends layout
+extends inc/layout
 
 block head
   title #{siteName} | Авторизация
@@ -9,7 +9,7 @@ block content
       |.ru
   .row
     .col.s12.l6.pl-0.pr-4
-      include advantages
+      include inc/advantages
     .card-panel.col.s12.offset-l1.l5.deep-purple.lighten-5.px-5.pb-3
       h3 Вход
       form(action="/login" method="POST")
