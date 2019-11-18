@@ -97,3 +97,8 @@ buildNumber.properties
 .flattened-pom.xml
 
 # End of https://www.gitignore.io/api/maven,java-web,intellij+iml
+
+/web/.idea/
+/web/*.html
+
+
