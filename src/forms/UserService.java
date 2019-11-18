@@ -2,6 +2,7 @@ package forms;
 
 import DAO.UserDAO;
 import HelperMethods.CookieHelper;
+import HelperMethods.HashPassword;
 import models.User;
 
 import javax.servlet.http.Cookie;
@@ -16,6 +17,7 @@ public class UserService {
 
     private UserDAO userDAO = new UserDAO();
     private CookieHelper cookieHelper = new CookieHelper();
+    private HashPassword hashPassword = new HashPassword();
 
     public void signUp(HttpServletRequest req, HttpServletResponse resp) {
         String login = req.getParameter("login");
@@ -26,6 +28,7 @@ public class UserService {
         String password_ver = req.getParameter("password_ver");
         if (req.getParameter("signUpButton") != null) {
             if (!userDAO.loginIsContained(login)) {
+                password = hashPassword.getHashPassword(password);
                 userDAO.saveUser(new User(login, first_name, last_name, password));
                 try {
                     resp.sendRedirect("/login");
@@ -33,9 +36,7 @@ public class UserService {
                     System.out.println("exception");
                     throw new IllegalArgumentException();
                 }
-
             } else {
-                System.out.println("ccg ");
                 //todo if user with this username already exists
             }
         }
@@ -46,11 +47,12 @@ public class UserService {
         String username = req.getParameter("login");
         String password = req.getParameter("password");
         try {
-            if (userDAO.checkUser(username, password)) {
+            if (userDAO.checkUser(username, hashPassword.getHashPassword(password))) {
                 cookieHelper.addCookie(req, resp, username);
                 resp.sendRedirect("/");
             } else {
                 //todo if user is not found
+                resp.sendRedirect("/login");
             }
         } catch (IOException e) {
             System.out.println();

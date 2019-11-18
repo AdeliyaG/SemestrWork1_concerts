@@ -1,12 +1,9 @@
-package forms;
-
-import models.User;
+package HelperMethods;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.Optional;
 
-public class UILogicService {
+public class HashPassword {
 
     public String getHashPassword(String password) {
         try {
