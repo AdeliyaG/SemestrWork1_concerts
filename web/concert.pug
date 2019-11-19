@@ -1,24 +1,75 @@
 extends inc/layout
 
+mixin prop(icon)
+  .prop
+    i.material-icons= icon
+    block
+
 block head
   title Концерт
 
 block content
   -
+    var user = {}
     var concert = {
     "poster": "//via.placeholder.com/320x400",
     "performer_name": "Имя исполнителя",
+    "performer_id": 5,
+    "user_starred": true,
+    "user_bought": false,
     "title": "Заголовок концерта",
+    "description": "Какое-то описание - немало текста.",
     "performer_name": "Имя исполнителя",
     "date": "17 Ноя 2019",
-    "price": "1100 руб."
+    "price": "1100 руб.",
+    "place_name": "ТРК Пирамида",
+    "place_address": "ул. Чистопольская, 42"
     }
 
   .row.mt-3
     .col.s12.m4
-      img.responsive-img(src=concert.poster)
+      img.poster-image.responsive-img(src=concert.poster)
     .col.s12.m8
-      h4= concert.title
-      h5
-        i.material-icons person_pin
-        = concert.performer_name
+      h3.concert-title= concert.title
+      +prop("person_pin")
+        a(href="/performer?id="+concert.performer_id)= concert.performer_name
+      +prop("today")
+        span= concert.date
+      +prop("location_on"): small
+        = concert.place_name
+        br
+        a(href="#")= concert.place_address
+      +prop("monetization_on")
+        span Стоимость билетов:&nbsp; #{concert.price}
+      +prop("people")
+        if concert.rec_age
+          span Для зрителей старше #{concert.rec_age} лет
+        else
+          span Для зрителей любого возраста
+  if user
+    .row.px-3
+      button.btn.col.accent.mr-3(class={"disabled": concert.user_bought})
+        if concert.user_bought
+          i.material-icons.left shopping_basket
+          | Куплено
+        else
+          i.material-icons.left add_shopping_cart
+          | Купить
+      button.btn.col.mr-3(style="background-color: " + theme.primary + ";")
+        i.material-icons.left message
+        | Найти компанию
+      a.btn-floating.btn-flat.red.tooltipped(data-position="right" data-tooltip=(concert.user_starred ? "Больше не нравится" : "В избранное"))
+        if concert.user_starred
+          i.material-icons favorite
+        else
+          i.material-icons favorite_border
+
+
+  .row
+    .col.s12
+      p.flow-text= concert.description
+  if !user
+    .row
+      p.col.s12 Для приобретения билетов и поиска компании, пожалуйста,&nbsp;
+        a(href="/register") зарегистрируйтесь
+        | &nbsp;&mdash; это займёт не больше 2 минут
