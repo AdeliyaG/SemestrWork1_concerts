@@ -1,14 +1,6 @@
 extends inc/layout
 
-mixin concert(title, poster, cost)
-  .card(style="height: 430px")
-    .card-image
-      img(src=poster)
-      a.btn-floating.btn-large.halfway-fab.waves-effect.waves-light(style="background-color: " + theme.primary + ";")
-        i.material-icons shopping_cart
-    .card-content
-      span.card-title= title
-      p= cost
+include inc/concert_card
 
 append navbar
   #carousel.carousel.no-autoinit
@@ -29,7 +21,7 @@ block content
         i.material-icons search
   .row
     each item in concerts
-      .col.l4.xl3: +concert(item.title, item.poster)
+      .col.l4.xl3: +concert(item)
 
 
 

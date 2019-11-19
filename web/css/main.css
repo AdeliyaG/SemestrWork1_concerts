@@ -78,3 +78,42 @@
     right: 0;
     bottom: 0;
 }
+
+.prop {
+    display: flex;
+    align-items: center;
+    margin: 14px 0;
+}
+
+.prop, .prop > a {
+    font-size: 20px;
+}
+
+.prop > i.material-icons {
+    font-size: 32px;
+    margin-right: 12px;
+}
+
+h3.concert-title {
+    margin-bottom: 20px;
+}
+
+img.poster-image {
+    width: 340px;
+    max-height: 600px;
+}
+
+.card.concert-card {
+    height: 440px;
+}
+
+.concert-card .card-content {
+    overflow: hidden;
+    padding: 30px 10px 10px 10px !important;
+    min-height: 80px;
+}
+
+#slide-out {
+    padding-top: 64px;
+    z-index: -3;
+}
