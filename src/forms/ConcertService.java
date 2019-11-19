@@ -1,7 +1,7 @@
 package forms;
 
-import DAO.ConcertDAO;
 import models.Concerts;
+import DAO.ConcertDAO;
 
 import java.util.ArrayList;
 
@@ -10,5 +10,13 @@ public class ConcertService {
 
     public ArrayList<Concerts> getConcerts(){
         return concertDAO.getConcerts();
+    }
+
+    public ArrayList<Concerts> getConcertsBySoonDate(String query){
+        return concertDAO.getConcertsBySoonDate(query);
+    }
+
+    public ArrayList<Concerts> getConcertsByLateDate(){
+        return concertDAO.getConcertsByLateDate();
     }
 }

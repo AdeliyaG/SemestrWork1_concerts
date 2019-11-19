@@ -1,18 +1,18 @@
 package models;
 
-import java.util.*;
+import java.time.LocalDate;
 
 public class Concerts {
     private int id;
     private String title;
     private String description;
     private String poster;
-    private Date date;
+    private LocalDate date;
     private int place_id;
     private int rec_age;
     private int pefrormer_id;
 
-    public Concerts(int id, String title, String description, String poster, Date date, int place_id, int rec_age, int pefrormer_id) {
+    public Concerts(int id, String title, String description, String poster, LocalDate date, int place_id, int rec_age, int pefrormer_id) {
         this.id = id;
         this.title = title;
         this.description = description;
@@ -23,7 +23,7 @@ public class Concerts {
         this.pefrormer_id = pefrormer_id;
     }
 
-    public Concerts(String title, String description, String poster, Date date, int place_id, int rec_age, int pefrormer_id) {
+    public Concerts(String title, String description, String poster, LocalDate date, int place_id, int rec_age, int pefrormer_id) {
         this.title = title;
         this.description = description;
         this.poster = poster;
@@ -31,6 +31,13 @@ public class Concerts {
         this.place_id = place_id;
         this.rec_age = rec_age;
         this.pefrormer_id = pefrormer_id;
+    }
+
+    public Concerts(int id, String title, String poster, LocalDate date) {
+        this.id = id;
+        this.title = title;
+        this.poster = poster;
+        this.date = date;
     }
 
     public int getId() {
@@ -65,11 +72,11 @@ public class Concerts {
         this.poster = poster;
     }
 
-    public Date getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 

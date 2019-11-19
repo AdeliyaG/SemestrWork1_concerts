@@ -10,8 +10,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.time.LocalDate;
-import java.util.Date;
 
 public class UserService {
 
@@ -65,21 +63,21 @@ public class UserService {
     }
 
     public void editProfile(HttpServletRequest req, HttpServletResponse resp) {
-//        AvatarAdd m = new AvatarAdd();
-//        String img;
-//        try {
-//            img = m.addMedia(req, req.getParameter("avatar"));
-//        } catch (IOException | ServletException e) {
-//            System.out.println("Exception during avatar adding");
-//            throw new IllegalArgumentException();
-//        }
+        AvatarAdd m = new AvatarAdd();
+        String img;
+        try {
+            img = m.addMedia(req, "avatar");
+        } catch (IOException | ServletException e) {
+            System.out.println("Exception during avatar adding");
+            throw new IllegalArgumentException();
+        }
         try {
             if (req.getParameter("saveChanges") != null) {
                 if (req.getParameter("password").equals("")) {
-                    userDAO.updateDataWithoutPassword(req.getParameter("first_name"), req.getParameter("last_name"), req.getParameter("avatar"), (String) req.getSession().getAttribute("current_user"));
+                    userDAO.updateDataWithoutPassword(req.getParameter("first_name"), req.getParameter("last_name"), img, (String) req.getSession().getAttribute("current_user"));
                     resp.sendRedirect("/lk");
                 } else {
-                    userDAO.updateData(req.getParameter("first_name"), req.getParameter("last_name"), req.getParameter("avatar"), hashPassword.getHashPassword(req.getParameter("password")), (String) req.getSession().getAttribute("current_user"));
+                    userDAO.updateData(req.getParameter("first_name"), req.getParameter("last_name"), img, hashPassword.getHashPassword(req.getParameter("password")), (String) req.getSession().getAttribute("current_user"));
                     resp.sendRedirect("/lk");
                 }
             }

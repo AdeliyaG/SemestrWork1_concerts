@@ -4,6 +4,7 @@ import forms.UserService;
 import servlets.jade.JadeConf;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -12,6 +13,9 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+@MultipartConfig(fileSizeThreshold = 1024 * 1024 * 10,
+        maxFileSize = 1024 * 1024 * 50,
+        maxRequestSize = 1024 * 1024 * 100)
 @WebServlet("/lk/edit")
 public class ProfileSettingsServlet extends HttpServlet {
     private UserService userService = new UserService();
