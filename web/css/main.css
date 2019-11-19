@@ -102,3 +102,13 @@ img.poster-image {
     width: 340px;
     max-height: 600px;
 }
+
+.card.concert-card {
+    height: 440px;
+}
+
+.concert-card .card-content {
+    overflow: hidden;
+    padding: 30px 10px 10px 10px !important;
+    min-height: 80px;
+}
