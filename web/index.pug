@@ -1,7 +1,7 @@
 extends inc/layout
 
 mixin concert(title, poster, cost)
-  .card
+  .card(style="height: 430px")
     .card-image
       img(src=poster)
       a.btn-floating.btn-large.halfway-fab.waves-effect.waves-light(style="background-color: " + theme.primary + ";")

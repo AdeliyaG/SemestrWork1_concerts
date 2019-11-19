@@ -7,14 +7,14 @@ block content
 
   .profile-info.mt-2
     .profile-wrapper.center-block
-      img.profile-pic.circle(src="https://pbs.twimg.com/media/D4tTgWTWkAMYCoU.png")
+      img.profile-pic.circle(src=user.avatar)
       a.btn-floating.waves-effect.waves-orange(href="/lk/edit" style="background-color: "+theme.accent+";")
         i.material-icons edit
-    h4.center-align.my-1= user.first_name + " " + user.last_name
+    h4.center-align.my-1= user.firstname + " " + user.lastname
     h6.center-align.mt-1 @
       = user.username
       | &nbsp;&middot; Посещённых концертов:&nbsp;
-      = attended.length
+      = attended.size()
 
   h4 Купленные
   ul.collection.attended
@@ -25,3 +25,6 @@ block content
         p= concert.performer_name
         p.grey-text= concert.date
         span.secondary-content= concert.price
+
+
+      //"https://pbs.twimg.com/media/D4tTgWTWkAMYCoU.png"

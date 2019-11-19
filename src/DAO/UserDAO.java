@@ -67,4 +67,33 @@ public class UserDAO {
         }
         return null;
     }
+
+    public void updateData(String firstname, String lastname, String avatar, String password, String username) {
+        try {
+            PreparedStatement statement = connection.prepareStatement("UPDATE users SET firstname = ?, lastname = ?, avatar = ?, password = ? WHERE username = ?");
+            statement.setString(1, firstname);
+            statement.setString(2, lastname);
+            statement.setString(3, avatar);
+            statement.setString(4, password);
+            statement.setString(5, username);
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println("Exception during update data");
+            throw new IllegalArgumentException();
+        }
+    }
+
+    public void updateDataWithoutPassword(String firstname, String lastname, String avatar, String username) {
+        try {
+            PreparedStatement statement = connection.prepareStatement("UPDATE users SET firstname = ?, lastname = ?, avatar = ? WHERE username = ?");
+            statement.setString(1, firstname);
+            statement.setString(2, lastname);
+            statement.setString(3, avatar);
+            statement.setString(4, username);
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println("Exception during update data without password");
+            throw new IllegalArgumentException();
+        }
+    }
 }
