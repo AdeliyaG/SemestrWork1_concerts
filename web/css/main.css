@@ -112,3 +112,8 @@ img.poster-image {
     padding: 30px 10px 10px 10px !important;
     min-height: 80px;
 }
+
+#slide-out {
+    padding-top: 64px;
+    z-index: -3;
+}
