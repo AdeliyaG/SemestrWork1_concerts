@@ -1,0 +1,28 @@
+extends inc/layout
+
+block head
+  title Оплата концерта #{"concert.title"}
+
+block content
+  h2= "concert.title"
+  h4 Место: fghjk
+  h4 Дата и время: апрол
+  .row
+    .col.s12.m8.offset-m2.l6.offset-l3
+      .card-panel.deep-purple.darken-1.pb-1
+        form(action="/concert/order", method="POST")
+          input(type="hidden" name="concert_id" value="concert.id")
+          .row.mb-1: .input-field.col.s12
+            i.material-icons.prefix.white-text person
+            input.white-text.validate(name="credit-name" class="cc-name" type="tel" pattern='\\d*' maxlength="19" required placeholder="Держатель карты")
+          .row.mb-1: .input-field.col.s12
+            i.material-icons.prefix.white-text credit_card
+            input.white-text(name="credit-number" class="cc-number" type="tel" pattern='\\d*' maxlength="19" required placeholder="Номер карты")
+          .row.mb-1
+            .input-field.col.s4
+              i.material-icons.prefix.white-text date_range
+              input.white-text(name="credit-expires" class="cc-expires" type="tel" pattern='\\d*' maxlength="7" required placeholder="MM / YY")
+            .input-field.col.s4.offset-s4
+              i.material-icons.prefix.white-text vpn_key
+              input.white-text(name="credit-cvc" class="cc-cvc" type="tel" pattern='\\d*' maxlength="4" required placeholder="CVC")
+          .row.mb-0: button.btn.btn-flat.white-text.right(type="submit", name="submit" style="flex-self: center;") Оплатить
