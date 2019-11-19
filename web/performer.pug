@@ -1,0 +1,12 @@
+extends inc/layout
+
+include inc/concert_card
+
+block head
+  title Концерты #{performer.name}
+
+block content
+  h2 Концерты #{performer.name}
+  .row
+    each item in concerts
+      .col.l4.xl3: +concert(item)

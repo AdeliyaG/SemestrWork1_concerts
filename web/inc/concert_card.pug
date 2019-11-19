@@ -1,0 +1,10 @@
+mixin concert(concert)
+  .card.concert-card
+    .card-image
+      img(src=concert.poster)
+      a.btn-floating.btn-large.halfway-fab.waves-effect.waves-light(style="background-color: " + theme.primary + ";"
+        href="/concert?id="+concert.id)
+        i.material-icons shopping_cart
+    .card-content
+      span.card-title.text-truncate= concert.title
+      p= concert.cost ? concert.cost : "Место для цены"
