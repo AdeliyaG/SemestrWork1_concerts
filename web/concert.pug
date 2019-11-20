@@ -9,22 +9,22 @@ block head
   title Концерт
 
 block content
-  -
-    var user = {}
-    var concert = {
-    "poster": "//via.placeholder.com/320x400",
-    "performer_name": "Имя исполнителя",
-    "performer_id": 5,
-    "user_starred": true,
-    "user_bought": false,
-    "title": "Заголовок концерта",
-    "description": "Какое-то описание - немало текста.",
-    "performer_name": "Имя исполнителя",
-    "date": "17 Ноя 2019",
-    "price": "1100 руб.",
-    "place_name": "ТРК Пирамида",
-    "place_address": "ул. Чистопольская, 42"
-    }
+  // -
+  //   var user = {}
+  //   var concert = {
+  //   "poster": "//via.placeholder.com/320x400",
+  //   "performer_name": "Имя исполнителя",
+  //   "performer_id": 5,
+  //   "user_starred": true,
+  //   "user_bought": false,
+  //   "title": "Заголовок концерта",
+  //   "description": "Какое-то описание - немало текста.",
+  //   "performer_name": "Имя исполнителя",
+  //   "date": "17 Ноя 2019",
+  //   "price": "1100 руб.",
+  //   "place_name": "ТРК Пирамида",
+  //   "place_address": "ул. Чистопольская, 42"
+  //   }
 
   .row.mt-3
     .col.s12.m4
@@ -48,8 +48,8 @@ block content
           span Для зрителей любого возраста
   if user
     .row.px-3
-      button.btn.col.accent.mr-3(class={"disabled": concert.user_bought})
-        if concert.user_bought
+      button.btn.col.accent.mr-3(class={"disabled": bought})
+        if bought
           i.material-icons.left shopping_basket
           | Куплено
         else
@@ -58,8 +58,8 @@ block content
       button.btn.col.mr-3(style="background-color: " + theme.primary + ";")
         i.material-icons.left message
         | Найти компанию
-      a.btn-floating.btn-flat.red.tooltipped(data-position="right" data-tooltip=(concert.user_starred ? "Больше не нравится" : "В избранное"))
-        if concert.user_starred
+      a.btn-floating.btn-flat.red.tooltipped(data-position="right" data-tooltip=(starreds ? "Больше не нравится" : "В избранное"))
+        if starred
           i.material-icons favorite
         else
           i.material-icons favorite_border

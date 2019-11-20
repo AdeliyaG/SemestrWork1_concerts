@@ -8,7 +8,7 @@ block content
     a.btn-floating.btn-large.btn-flat.mr-3(href="/lk")
       i.material-icons.black-text arrow_back
     | Редактирование профиля
-  .row: form.col.l12.m12.s12(action="/lk/edit" method="POST")
+  .row: form.col.l12.m12.s12(action="/lk/edit" method="POST" enctype="multipart/form-data")
     .row.mb-0
       .input-field.col.s12.l5
         input#first_name.validate(type="text" name="first_name" value=user.firstname)

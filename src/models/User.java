@@ -12,12 +12,11 @@ public class User {
     private String password;
     private String avatar;
 
-    public User(int id, String username, String firstname, String lastname, LocalDate birthLocalDate, String password, String avatar) {
+    public User(int id, String username, String firstname, String lastname, String password, String avatar) {
         this.id = id;
         this.username = username;
         this.firstname = firstname;
         this.lastname = lastname;
-        this.birthLocalDate = birthLocalDate;
         this.password = password;
         this.avatar = avatar;
     }

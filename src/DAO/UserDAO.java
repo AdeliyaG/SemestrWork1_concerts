@@ -62,7 +62,7 @@ public class UserDAO {
             statement.setString(1, username);
             ResultSet resultSet = statement.executeQuery();
             if (resultSet.next()) {
-                return new User(resultSet.getString("username"), resultSet.getString("firstname"), resultSet.getString("lastname"), resultSet.getString("password"), resultSet.getString("avatar"));
+                return new User(resultSet.getInt("id"), resultSet.getString("username"), resultSet.getString("firstname"), resultSet.getString("lastname"), resultSet.getString("password"), resultSet.getString("avatar"));
             }
         } catch (SQLException e) {
             System.out.println("Exception during get user by email");

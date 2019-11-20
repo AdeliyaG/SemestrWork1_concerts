@@ -69,7 +69,7 @@ public class UserService {
             img = m.addMedia(req, "avatar");
         } catch (IOException | ServletException e) {
             System.out.println("Exception during avatar adding");
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(e);
         }
         try {
             if (req.getParameter("saveChanges") != null) {
