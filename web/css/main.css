@@ -115,5 +115,78 @@ img.poster-image {
 
 #slide-out {
     padding-top: 64px;
+    width: 380px;
     z-index: -3;
+}
+
+#chat {
+    padding-left: 380px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: calc(100% - 64px);
+}
+#chat-page {
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+}
+
+#chat-field {
+    border-top: #cfcfcf solid 1px;
+}
+
+#chat-field textarea {
+    max-height: 180px;
+}
+
+#chat-page .message {
+    margin: 5px 18px;
+    display: flex;
+}
+#chat-page .message .bubble {
+    margin-top: 8px;
+}
+#chat-page .message img {
+    width: 48px;
+    height: 48px;
+    display: inline-block;
+}
+#chat-page .bubble {
+    display: inline-block;
+    padding: 6px;
+    max-width: 60%;
+    border-radius: 4px;
+    border: #eee solid 1px;
+    position: relative;
+    margin: 8px 16px;
+}
+
+#chat-page .bubble.bubble-left {
+    align-self: flex-start;
+    background-color: #d3e8fe;
+}
+#chat-page .bubble.bubble-left:before {
+    content: "";
+    position: absolute;
+    top: 22%;
+    left: -8px;
+    width: 0;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-right: 8px solid #d3e8fe;
+}
+#chat-page .bubble.bubble-right:after {
+    content: "";
+    position: absolute;
+    top: 22%;
+    left: 100%;
+    width: 0;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-left: 8px solid #cdc4ff;
+}
+#chat-page .bubble.bubble-right {
+    background-color: #cdc4ff;
+    align-self: flex-end;
 }

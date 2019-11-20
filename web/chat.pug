@@ -1,6 +1,60 @@
 extends inc/layout
 
 append navbar
-  ul#slide-out.sidenav.sidenav-fixed
-    li: a Item
+  ul#slide-out.sidenav.sidenav-fixed.collection
+    li.collection-item.avatar
+      img.circle(src="//via.placeholder.com/100" alt="")
+      span.title.truncate Название концерта
+      p.mt-1.grey-text.truncate
+        span.blue-text User:
+          | &nbsp;
+        | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum, laudantium!
+      span.secondary-content 17:34
+    li.collection-item.avatar
+      img.circle(src="//via.placeholder.com/100" alt="")
+      span.title.truncate Название концерта
+      p.mt-1.grey-text.truncate
+        span.blue-text User:
+          | &nbsp;
+        | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum, laudantium!
+      span.secondary-content 17:34
   a.sidenav-trigger(href="#" data-target="slide-out")
+
+append body
+  #chat
+    #chat-page
+      .message
+        img.circle(src="//via.placeholder.com/100")
+        .bubble.bubble-left Some message
+      .message
+        img.circle(src="//via.placeholder.com/100")
+        .bubble.bubble-left Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, alias dignissimos eum impedit libero pariatur sint.
+      .bubble.bubble-right Lorem ipsum dolor sit amet, consectetur adipisicing.
+      .message
+        img.circle(src="//via.placeholder.com/100")
+        .bubble.bubble-left Some message
+      .message
+        img.circle(src="//via.placeholder.com/100")
+        .bubble.bubble-left Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, alias dignissimos eum impedit libero pariatur sint.
+      .bubble.bubble-right Lorem ipsum dolor sit amet, consectetur adipisicing.
+      .message
+        img.circle(src="//via.placeholder.com/100")
+        .bubble.bubble-left Some message
+      .message
+        img.circle(src="//via.placeholder.com/100")
+        .bubble.bubble-left Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, alias dignissimos eum impedit libero pariatur sint.
+      .bubble.bubble-right Lorem ipsum dolor sit amet, consectetur adipisicing.
+      .message
+        img.circle(src="//via.placeholder.com/100")
+        .bubble.bubble-left Some message
+      .message
+        img.circle(src="//via.placeholder.com/100")
+        .bubble.bubble-left Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, alias dignissimos eum impedit libero pariatur sint.
+      .bubble.bubble-right Lorem ipsum dolor sit amet, consectetur adipisicing.
+    #chat-field
+      .row.ma-0.valign-wrapper
+        .input-field.col.s12.my-1
+          i.material-icons.prefix.black-text message
+          textarea.materialize-textarea(type="text" maxlength="200" placeholder="Ваше сообщение")
+        a.btn.btn-floating.btn-flat.right.mr-2
+          i.material-icons.right.black-text send
